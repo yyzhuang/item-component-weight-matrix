@@ -1,0 +1,634 @@
+No.;atomID;code;solution;atom type (original studies);confusing/nonconfusing (original studies);;ifelse;if/while(int);logical;comma_sep;comma_oper;and_operator;or_operator;greater_greaterthan;not_operator;equal_operator;modulo_operator;ternary;maths;loop_while;loop_for;postIncDec;preIncDec;macro;preprocessor;hexadecimal;octal;typeconversion;types_otherthanINT;semicolon;Indexing_start0;reversed_subscripts
+1;atom1;"void main(){
+   int V1 = 10, V2 = 3;
+   if (! (V1 % V2)){
+      printf(""%s\n"", ""true"");
+   }
+   else{
+      printf(""%s\n"", ""false"");
+   }
+}
+
+";false;add_CONDITION_atom;Confusing;;1;1;0;1;0;0;0;0;1;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+2;atom2;"void main(){
+   int V1 = 1, V2 = 2;
+   if ( (V2 - V1) == 0){
+      printf(""%s\n"", ""true"");
+   }
+   else{
+      printf(""%s\n"", ""false"");
+   }
+}";false;add_CONDITION_atom;Non-confusing;;1;0;1;1;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+11;atom11;"void main() {
+   if (0 && 1 || 2) {
+      printf(""true"");
+   } else {
+      printf(""false"");
+   }
+}";true;add_PARENTHESIS_atom;Confusing;;1;1;0;0;0;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+12;atom12;"void main() {
+   if ((2 && 0) || 5) {
+      printf(""true"");
+   } else {
+      printf(""false"");
+   }
+}";true;add_PARENTHESIS_atom;Non-confusing;;1;1;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+15;atom15;"void main() { 
+   int V1 = 0;
+   if (V1++ == 0) {
+      printf(""true "");
+   }
+   else {
+      printf(""false "");
+   }
+   printf(""%d"", V1);
+}";true 1;move_POST_INC_DEC_atom;Confusing;;1;0;1;0;0;0;0;0;0;1;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0
+16;atom16;"void main() { 
+   int V1 = 0;
+   if (V1 == 0) {
+      printf(""true "");
+   }
+   else {
+      printf(""false "");
+   }
+   V1++;
+   printf(""%d"", V1);
+}";true 1;move_POST_INC_DEC_atom;Non-confusing;;1;0;1;0;0;0;0;0;0;1;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0
+17;atom17;"void main() { 
+   int V1 = 2;
+   if (V1-- == 1) {
+      printf(""true "");
+   }
+   else {
+      printf(""false "");
+   }
+   printf(""%d"", V1);
+}";false 1;move_POST_INC_DEC_atom;Confusing;;1;0;1;0;0;0;0;0;0;1;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0
+18;atom18;"void main() { 
+   int V1 = 2;
+   if (V1 == 1) {
+      printf(""true "");
+   }
+   else {
+      printf(""false "");
+   }
+   V1--;
+   printf(""%d"", V1);
+}";false 1;move_POST_INC_DEC_atom;Non-confusing;;1;0;1;0;0;0;0;0;0;1;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0
+19;atom19;"void main() { 
+   int V1 = 2;
+   int V2 = ++V1 - 2;
+   printf(""%d %d\n"", V1, V2);
+}";3 1;move_PRE_INC_DEC_atom;Confusing;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0
+20;atom20;"void main() { 
+   int V1 = 5, V2;
+   ++V1;
+   V2 = 5 - V1;
+   printf(""%d %d\n"", V1, V2);
+}";06.Jän;move_PRE_INC_DEC_atom;Non-confusing;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0
+21;atom21;"void main() { 
+   int V1 = 2;
+   if (--V1 == 1) {
+      printf(""true "");
+   }
+   else {
+      printf(""false "");
+   }
+   printf(""%d"", V1);
+}";true 1;move_PRE_INC_DEC_atom;Confusing;;1;0;1;0;0;0;0;0;0;1;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0
+22;atom22;"void main() { 
+   int V1 = 2;
+   V1--;
+   if (V1 == 1) {
+      printf(""true "");
+   }
+   else {
+      printf(""false "");
+   }
+   printf(""%d"", V1);
+}";true 1;move_PRE_INC_DEC_atom;Non-confusing;;1;0;1;0;0;0;0;0;0;1;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0
+23;atom23;"void main() { 
+   int V1 = 2;
+   int V2 = --V1 + 3;
+   printf(""%d %d\n"", V1, V2);
+}";1 4;move_PRE_INC_DEC_atom;Confusing;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0
+24;atom24;"void main() { 
+   int V1 = 6, V2;
+   V2 = 9 - V1;
+   --V1;
+   printf(""%d %d\n"", V1, V2);
+}";5 3;move_PRE_INC_DEC_atom;Non-confusing;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0
+25;atom25;"void main() {
+   int V1 = 3;
+   int V2 = V1 + 2;
+   printf(""%d\n"", V2);
+}";5;replace_CONSTANTVARIABLE_atom;Confusing;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+26;atom26;"void main() {
+   int V1 =  2 + 3;
+   printf(""%d\n"", V1);
+}";5;replace_CONSTANTVARIABLE_atom;Non-confusing;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+29;atom29;"void main() {
+   int V1 = 2;
+   printf(""%f\n"", 2.5 * V1);
+}";5;replace_CONSTANTVARIABLE_atom;Confusing;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+30;atom30;"void main() {
+   printf(""%f\n"", 2 * 4.5);
+}";9;replace_CONSTANTVARIABLE_atom;Non-confusing;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+31;atom31;"void main() {
+   int V1 = 2;
+   int V2 = 0;
+   int V3 = 3;
+
+   if (V1)
+      if (V2)
+         V3 = V3 + 2;
+   else
+      V3 = V3 + 4;
+
+   printf(""%d\n"", V3);
+}";7;remove_INDENTATION_atom;Confusing;;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0
+32;atom32;"void main() {
+   int V1 = 2;
+   int V2 = 0;
+   int V3 = 5;
+
+   if (V1)
+      if (V2)
+         V3 = V3 + 2;
+      else
+         V3 = V3 + 4;
+
+   printf(""%d\n"", V3);
+}";9;remove_INDENTATION_atom;Non-confusing;;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+33;atom33;"void main() {
+   int V1 = 5, V2 = 5;
+   while (V2 > 0)
+      V2--;
+      V1++;
+   printf(""%d\n"",V1);
+}
+
+";6;remove_INDENTATION_atom;Confusing;;0;0;1;1;0;0;0;1;0;0;0;0;0;1;0;1;0;0;0;0;0;0;0;1;0;0
+34;atom34;"void main() {
+   int V1 = 5, V2 = 5;
+   while (V2 > 0)
+      V2--;
+   V1++;
+   printf(""%d\n"",V1);
+}";6;remove_INDENTATION_atom;Non-confusing;;0;0;1;1;0;0;0;1;0;0;0;0;0;1;0;1;0;0;0;0;0;0;0;1;0;0
+35;atom35;"void main() {
+   int V1 = 1, V2 = 2;
+   if (V1 > V2)
+   V2 = 1;
+   V1 = 2;
+   printf(""%d %d\n"",V1, V2);
+}";2 2;remove_INDENTATION_atom;Confusing;;1;0;1;1;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0
+36;atom36;"void main() {
+   int V1 = 5, V2 = 2;
+   if (V1 < V2)
+      V1 = 2;
+   V2 = 5;
+   printf(""%d %d\n"",V1, V2);
+}";5 5;remove_INDENTATION_atom;Non-confusing;;1;0;1;1;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0
+42;atom42;"void main(){
+   int V1 = (2 + 1) * (3 + 4);
+   printf(""%d\n"", V1);
+}";21;replace_MACRO_atom;Non-confusing;;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0
+49;atom49;"void main() {
+   int V1 = 4;
+
+   int V2 = V1 == 3 ? 2 : 1;
+
+   printf(""%d\n"", V2);
+}";1;replace_Ternary_Operator;Confusing;;0;0;1;0;0;0;0;0;0;1;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+50;atom50;"void main() {
+   int V1 = 4;
+   int V2 = 3;
+   int V3;
+  
+   if (V1 == 3) {
+      V3 = 2;
+   } else {
+      V3 = 1;
+   }
+
+   printf(""%d\n"", V3);
+}";1;replace_Ternary_Operator;Non-confusing;;1;0;1;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+53;atom53;"void main() {
+   int V1 = 2;
+   int V2 = 3;
+   int V3 = 1;
+
+   int V4 = V1 == 3 ? V2 : V3;
+
+   printf(""%d\n"", V4);
+}";1;replace_Ternary_Operator;Confusing;;0;0;1;0;0;0;0;0;0;1;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+55;atom55;"void main() {
+   int V1 = 8;
+
+   if ((V1 - 3) * (7 - V1) <= 0) {
+      printf(""true\n"");
+   } else {
+      printf(""false\n"");
+   }
+}";true;replace_Arithmetic_As_Logic;Confusing;;1;0;1;0;0;0;0;1;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0
+56;atom56;"void main() {
+   int V1 = 8;
+
+   if (3 <= V1 || V1 >= 7) {
+      printf(""true\n"");
+   } else {
+      printf(""false\n"");
+   }
+}";true;replace_Arithmetic_As_Logic;Non-confusing;;1;0;1;0;0;0;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+57;atom57;"void main() {
+   int V1 = 2;
+
+   if ((V1 - 2) * (6 - V1) > 0) {
+      printf(""true\n"");
+   } else {
+      printf(""false\n"");
+   }
+}";false;replace_Arithmetic_As_Logic;Confusing;;1;0;1;0;0;0;0;1;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0
+58;atom58;"void main() {
+   int V1 = 2;
+
+   if (V1 < 2 || 6 < V1) {
+      printf(""true\n"");
+   } else {
+      printf(""false\n"");
+   }
+}";false;replace_Arithmetic_As_Logic;Non-confusing;;1;0;1;0;0;0;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+61;atom61;"void main() {
+   int V1, V2;
+
+   V1 = (V2 = 1, 2);
+
+   printf(""%d %d\n"", V1, V2);
+}";2 1;replace_Comma_Operator;Confusing;;0;0;0;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+62;atom62;"void main() {
+   int V1, V2;
+
+   V1 = 2;
+   V2 = 1;
+
+   printf(""%d %d\n"", V1, V2);
+}";2 1;replace_Comma_Operator;Non-confusing;;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+67;atom67;"void main() {
+   char *V1 = ""abcdef""
+   #define M1
+   ""abcdef"";
+
+   printf(""%s\n"", V1);
+}
+
+";abcdefabcdef;move_Preprocessor_Directives_Inside_Statements;Confusing;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;0;0
+68;atom68;"void main() {
+   char *V1 = ""abcdef""
+   ""abcdef"";
+
+   #define M1
+
+   printf(""%s\n"", V1);
+}";abcdefabcdef;move_Preprocessor_Directives_Inside_Statements;Non-confusing;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;0;0
+69;atom69;"void main() {
+   int V1;
+   V1 = 4;
+
+   int V2 = 1
+   #define M1 1
+   +
+   #define M2 2
+   V1;
+
+   printf(""%d %d\n"", V1, V2);
+}";4 5;move_Preprocessor_Directives_Inside_Statements;Confusing;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0
+70;atom70;"void main() {
+   #define M1 1
+   #define M2 2
+
+   int V1;
+   V1 = 4;
+
+   int V2 = 1 + V1;
+
+   printf(""%d %d\n"", V1, V2);
+}";4 5;move_Preprocessor_Directives_Inside_Statements;Non-confusing;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+71;atom71;"void main() {
+   int V1 = 1, V2 = 2;
+
+   if (V1 < V2) {
+      #define M1 1
+      #define M2 2
+   } else {
+      #define M1 2
+      #define M2 1
+   }
+
+   printf(""%d %d\n"", M1, M2);
+}";2 1;move_Preprocessor_Directives_Inside_Statements;Confusing;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;0;0;0;0;0;0;0
+73;atom73;"void main() {
+   int V1 = 2;
+
+   if (V1 = 1) {
+      printf(""true\n"");
+   } else {
+      printf(""false\n"");
+   }
+}";true;Constant Assignment;Confusing;;1;1;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+74;atom74;"void main() {
+   int V1 = 7;
+   V1 = 1;
+   if (1) {
+      printf(""true\n"");
+   } else {
+      printf(""false\n"");
+   }
+}";true;Constant Assignment;Non-confusing;;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+75;atom75;"void main() {
+   int V1 = 0;
+
+   if (V1 = 0) {
+      printf(""true\n"");
+   } else {
+      printf(""false\n"");
+   }
+}";false;Constant Assignment;Confusing;;1;1;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+76;atom76;"void main() {
+   int V1 = 0;
+
+   V1 = 0;
+
+   if (V1) {
+      printf(""true\n"");
+   } else {
+      printf(""false\n"");
+   }
+}";false;Constant Assignment;Non-confusing;;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+77;atom77;"void main() {
+   int V1 = 0;
+   int V2 = 9;
+
+   while (!(V1 = 3)) {
+      V2--;
+      V1++;
+   }
+
+   printf(""%d %d\n"", V1, V2);
+}";3 9;Constant Assignment;Confusing;;0;1;0;0;0;0;0;0;1;1;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0
+78;atom78;"void main() {
+   int V1 = 0;
+   int V2 = 7;
+
+   V1 = 4;
+
+   while (!4) {
+      V2--;
+      V1++;
+   }
+
+   printf(""%d %d\n"", V1, V2);
+}";4 7;Constant Assignment;Non-confusing;;0;1;0;0;0;0;0;0;1;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0
+79;atom79;"void main() {
+   int V1 = 1;
+   int V2 = 5;
+
+   if (++V1 || ++V2) {
+      V1 = V1 * 2;
+      V2 = V2 * 2;
+   }
+
+   printf(""%d %d\n"", V1, V2);
+}";4 10;Logic as Control Flow;Confusing;;1;1;1;0;0;0;1;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0
+80;atom80;"void main() {
+   int V1 = 2;
+   int V2 = 4;
+
+   if (++V1) {
+        V1 = V1 * 2;
+        V2 = V2 * 2;
+   } else if (++V2) {
+        V1 = V1 * 2;
+        V2 = V2 * 2;
+   }
+
+   printf(""%d %d\n"", V1, V2);
+}";6 8;Logic as Control Flow;Non-confusing;;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0
+81;atom81;"void main() {
+   int V1 = 1;
+   int V2 = 5;
+
+   V1 == V2 && ++V1 || ++V2;
+
+   printf(""%d %d\n"", V1, V2);
+}";1 6;Logic as Control Flow;Confusing;;0;0;1;0;0;1;1;0;0;1;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0
+82;atom82;"void main() {
+   int V1 = 2;
+   int V2 = 6;
+
+   if (V1 == V2) {
+      ++V1;
+   } else {
+      ++V2;
+   }
+
+   printf(""%d %d\n"", V1, V2);
+}";2 7;Logic as Control Flow;Non-confusing;;1;0;1;0;0;0;0;0;0;1;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0
+83;atom83;"void main() {
+   int V1 = 3;
+   int V2 = 5;
+   int V3 = 0;
+
+   while (V1 != V2 && ++V1) {
+      V3++;
+   }
+
+   printf(""%d %d %d\n"", V1, V2, V3);
+}";5 5 2;Logic as Control Flow;Confusing;;0;0;1;0;0;1;0;0;1;0;0;0;0;1;0;1;1;0;0;0;0;0;0;0;0;0
+84;atom84;"void main() {
+   int V1 = 1;
+   int V2 = 11;
+   int V3 = 0;
+
+   while (V1 != V2) {
+      ++V1;
+      if (!V1) break;
+
+      V3++;
+   }
+
+   printf(""%d %d %d\n"", V1, V2, V3);
+}";11 11 10;Logic as Control Flow;Non-confusing;;0;1;1;0;0;0;0;0;1;0;0;0;0;1;0;1;1;0;0;0;0;0;0;0;0;0
+95;atom95;"void main() {
+   char V1 = 4;
+   char* V2 = ""qazwsx"";
+   char V3 = V1[V2];
+
+   printf(""%c\n"", V3);
+}";s;Swapped subscripts;Confusing;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;1;1
+96;atom96;"void main() {
+   char V1 = 4;
+   char* V2 = ""abcdef"";
+   char V3 = V2[V1];
+
+   printf(""%c\n"", V3);
+}";e;Swapped subscripts;Non-confusing;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;1;0
+99;atom99;"void main() {
+   int V1 = 1;
+
+   if (0) {
+      V1 = 3;
+   }
+
+   printf(""%d\n"", V1);
+}";1;Dead, unreachable, repeated;Confusing;;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+102;atom102;"void main() {
+   int V1 = 0;
+
+   printf(""%d\n"", V1);
+}";0;Dead, unreachable, repeated;Non-confusing;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+105;atom105;"void main() {
+   int V1 = 013;
+
+   printf(""%d\n"", V1);
+}";11;Literal encoding;Confusing;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0
+106;atom106;"void main() {
+   char V1 = 23;
+ 
+   printf(""%d\n"", V1);
+}";23;Literal encoding;Non-confusing;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0
+108;atom108;"void main() {
+   char V1 = 0xD0 & 0x0D;
+
+   printf(""%d\n"", V1);
+}";0;Literal encoding;Non-confusing;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;1;0;0;0
+109;atom109;"void main() {
+   int V1 = 2;
+
+   if (0) V1++; V1++;
+
+   printf(""%d\n"", V1);
+}";3;Curly braces;Confusing;;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;1;0;0
+110;atom110;"void main() {
+   int V1 = 2;
+
+   if (0) { V1++; } V1++;
+
+   printf(""%d\n"", V1);
+}";3;Curly braces;Non-confusing;;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0
+111;atom111;"void main() {
+   int V1 = 4;
+
+   int V2 = 0;
+   while (V2 < 3) V2++; V1++;
+
+   printf(""%d %d\n"", V1, V2);
+}";5 3;Curly braces;Confusing;;0;0;1;0;0;0;0;1;0;0;0;0;0;1;0;1;0;0;0;0;0;0;0;1;0;0
+112;atom112;"void main() {
+   int V1 = 7;
+
+   int V2 = 1;
+   while (V2 < 3) { V2++; } V1++;
+ 
+   printf(""%d %d\n"", V1, V2);
+}";8 3;Curly braces;Non-confusing;;0;0;1;0;0;0;0;1;0;0;0;0;0;1;0;1;0;0;0;0;0;0;0;0;0;0
+113;atom113;"void main() {
+   int V1 = 3;
+
+   for (int V2 = 0; V2 < 3; V2++) V1++; V1++;
+
+   printf(""%d\n"", V1);
+}";7;Curly braces;Confusing;;0;0;1;0;0;0;0;1;0;0;0;0;0;0;1;1;0;0;0;0;0;0;0;1;0;0
+114;atom114;"void main() {
+   int V1 = 4;
+
+   for (int V2 = 0; V2 < 3; V2++) { V1++; } V1++;
+
+   printf(""%d\n"", V1);
+}";8;Curly braces;Non-confusing;;0;0;1;0;0;0;0;1;0;0;0;0;0;0;1;1;0;0;0;0;0;0;0;0;0;0
+115;atom115;"void main() {
+   float V1 = 1.99;
+
+   int V2 = V1;
+ 
+   printf(""%d\n"", V2);
+}";1;Type conversion;Confusing;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;0;0;0
+116;atom116;"#include &lt;math.h&gt;
+void main() {
+   float V1 = 2.87;
+
+   int V2 = trunc(V1);
+
+   printf(""%d\n"", V2);
+}";2;Type conversion;Non-confusing;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;0;0;0;1;0;0;0
+117;atom117;"void main() {
+   int V1 = -1;
+
+   unsigned int V2 = V1;
+
+   int V3;
+   if (V2 > 0) {
+      V3 = 4;
+   } else {
+      V3 = 5;
+   }
+
+   printf(""%d\n"", V3);
+}";4;Type conversion;Confusing;;1;0;1;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;0;0;0
+118;atom118;"#include  &lt;limits.h&gt;
+void main() {
+   int V1 = -1;
+
+   unsigned int V2;
+   if (V1 >= 0) {
+      V2 = V1;
+   } else {
+      V2 = UINT_MAX + (V1 + 1);
+   }
+
+   int V3;
+   if (V2 >= 0) {
+      V3 = 4;
+   } else {
+      V3 = 5;
+   }  
+
+   printf(""%d\n"", V3);
+}";4;Type conversion;Non-confusing;;1;0;1;0;0;0;0;1;0;0;0;0;0;0;0;0;0;0;1;0;0;0;1;0;0;0
+119;atom119;"void main() {
+   int V1 = 261;
+
+   char V2 = V1;
+
+   printf(""%d\n"", V2);
+}";5;Type conversion;Confusing;;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;0;0;0
+125;atom125;"void main() {
+   int V1 = 2;
+   int V2 = 0;
+   int V3 = 3;
+
+   if (V1) {
+      if (V2) {
+         V3 = V3 +2;
+   } else {
+      V3 = V3 + 4;
+   }
+   }
+
+   printf(""%d\n"", V3);
+}";7;Indentation;Confusing;;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+126;atom126;"void main() {
+  int V1 = 2;
+  int V2 = 0;
+  int V3 = 5;
+
+  if (V1) {
+     if (V2) {
+        V3 = V3 + 2;
+     } else {
+        V3 = V3 + 4;
+     }
+  }
+
+  printf(""%d\n"", V3);
+}";9;Indentation;Non-confusing;;1;1;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
